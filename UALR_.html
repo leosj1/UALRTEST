@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UALR PROJECT</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- data js link -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+</head>
+
+<body>
+
+    <!-- <script src="graph.js"></script> -->
+
+    <div class="container" style="padding-top:100px; padding-bottom:100px;">
+        <div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 card w3-border w3-round-xlarge"
+                    style="margin-bottom: 20px; margin-right: 20px; box-shadow: -2px 2px #8080804f;">
+                    <div class="panel panel-primary">
+                        </br>
+                        <div>
+                            <strong>Topics</strong>
+                        </div>
+                        </br>
+
+                            <input class="form-control" id="myInput" type="text" placeholder="Search"
+                                style="border-radius: 20px; width:90%;" aria-describedby="basic-addon1">
+                            <br>
+
+                            <ul class="list-group " id="myList"
+                            style="max-height: 370px; overflow: scroll; overflow-x: hidden; padding-right:20px;">
+
+                            <a id="t1" href="#" class="list-group-item list-group-item-action "
+                                style="border-radius: 20px; height:20%;">
+                                Topic 1
+                            </a>
+                            <br>
+
+                            <a id="t2" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 2
+                            </a>
+                            <br>
+                            <a id="t3" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 3
+                            </a>
+                            <br>
+                            <a id="t4" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 4
+                            </a>
+                            <br>
+                            <a id="t5" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 5
+                            </a>
+                            <br>
+                            <a id="t6" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 6
+                            </a>
+                            <br>
+                            <a id="t7" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 7
+                            </a>
+                            <br>
+                            <a id="t8" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 8
+                            </a>
+                            <br>
+                            <a id="t9" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 9
+                            </a>
+                            <br>
+                            <a id="t10" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 10
+                            </a>
+                            <br>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12" style="margin-bottom: 20px;">
+                    <div class="row h-300">
+                        <div class="col-md-12 col-lg-12 B h-50 pb-3 card w3-border w3-round-xlarge"
+                            style="box-shadow: -2px 2px #8080804f;">
+                            <div class="panel">
+                                <div class="" id="myChart_line" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="card w3-border w3-round-xlarge" style=" box-shadow: -2px 2px #8080804f;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Blog Distribution</strong>
+
+                                    <h3 id="distribution">95%</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Bloggers Mentioned</strong>
+
+                                    <h3 id="b_mentioned">20</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Posts Mentioned</strong>
+
+                                    <h3 id="p_mentioned">400</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong style=" font-size: 14px;">The Posting Location</strong>
+
+                                    <h3 id="posting_loc" style=" font-size: 26px;">United States</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 card "
+                    style="margin-top: 20px; margin-right: 20px;box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>Keywords from
+                        <a id="word" href="#"></a> of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_word" style="height: 370px; width: 100%;"></div>
+                </div>
+                <div class="col-sm-4 col-md-4 card"
+                    style="margin-top: 20px; margin-right: 20px;box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>
+                        <a id="chord" href="#"></a> Overlap of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_chord" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div class="col-sm-3 col-md-3 card" style="margin-top: 20px; box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>Posts from
+                        <a id="scatter" href="#"></a> of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_scatter" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" async></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" async></script>
+    <!-- <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> -->
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
