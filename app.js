@@ -49,8 +49,12 @@ $(document).ready(function () {
             }
         })
     });
-});
 
+    
+
+});
+var today=new Date();
+var dd = today.getDate();
 //line graph configuration
 var lineConfig = {
     "globals": {
@@ -125,7 +129,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "aspect": "spline",
@@ -148,7 +152,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "background-color": "#647178",
@@ -158,7 +162,7 @@ var lineConfig = {
                     "font-family": "Roboto",
                     "font-size": "14px"
                 },
-                {
+                { 
                     "values": getrand(35000, 45000, 12),
                     "data-days": [
                         "Sept 19",
@@ -172,7 +176,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "background-color": "#0096e0",
@@ -196,7 +200,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "aspect": "spline",
@@ -220,7 +224,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "background-color": "#647178",
@@ -244,7 +248,7 @@ var lineConfig = {
                         "Sept 27",
                         "Sept 28",
                         "Sept 29",
-                        "Sept 30"
+                        today
                     ],
                     "line-color": "#ffffff",
                     "background-color": "#000f3d",
@@ -418,7 +422,7 @@ var scatterConfig = {
             visible: false
         }
     },
-    
+
     scaleX: {
         visible: false
     }
