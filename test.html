@@ -8,297 +8,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UALR PROJECT</title>
     <!-- Latest compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- data js link -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-    
-    <!-- Resources -->
-    <!-- <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script src="http://d3js.org/d3.v4.js"></script> -->
-    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <!-- data js link -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://echarts.baidu.com/build/dist/echarts-all.js"></script>
 </head>
 
 <body>
+    <!-- <script src="graph.js"></script> -->
 
-    <!-- HTML -->
-    <!-- Create a div where the graph will take place -->
-    <div id="myChart_chord" style="height:1000px"></div>
+    <div class="container" style="padding-top:100px; padding-bottom:100px;">
+        <div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 card w3-border w3-round-xlarge"
+                    style="margin-bottom: 20px; margin-right: 20px; box-shadow: -2px 2px #8080804f;">
+                    <div class="panel panel-primary">
+                        </br>
+                        <div>
+                            <strong>Topics</strong>
+                        </div>
+                        </br>
 
-    <!-- Create a div for the tooltip -->
-    <div id="tooltip"></div>
+                            <!-- <input class="form-control" id="myInput" type="text" placeholder="Search"
+                                style="border-radius: 20px; width:90%;" aria-describedby="basic-addon1"> -->
+                              
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span style="background-color: white !important" class="input-group-text" id="basic-addon3"><i class="fa fa-search form-control-feedback"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <span style="background-color: white !important" class="input-group-text">X</span>
+                                      </div>
+                                </div>
+                            <br>
 
-    <!-- Chart code -->
-    <script>
+                            <ul class="list-group " id="myList"
+                            style="max-height: 370px; overflow: scroll; overflow-x: hidden; padding-right:20px;">
 
-        var myChart = echarts.init(document.getElementById('myChart_chord'),'macarons');
+                            <a id="t1" href="#" class="list-group-item bg-primary text-white list-group-item-action "
+                                style="border-radius: 20px; height:20%;">
+                                Topic 1
+                                <span class="float-right">-</span>
+                            </a>
+                            <br>
 
-        // var option = {
-        //     title: {
-        //         // text: '测试数据',
-        //         // subtext: 'From d3.js',
-        //         x: 'right',
-        //         y: 'bottom'
-        //     },
-        //     tooltip: {
-        //         trigger: 'item',
-        //         formatter: function (params) {
-        //             if (params.indicator2) { // is edge
-        //                 return params.value.weight;
-        //             } else {// is node
-        //                 return params.name
-        //             }
-        //         }
-        //     },
-        //     toolbox: {
-        //         show: true,
-        //         feature: {
-        //             restore: { show: true },
-        //             magicType: { show: true, type: ['force', 'chord'] },
-        //             saveAsImage: { show: true }
-        //         }
-        //     },
-        //     // legend: {
-        //     //     x: 'left',
-        //     //     data: ['group1', 'group2', 'group3', 'group4']
-        //     // },
-        //     series: [
-        //         {
-        //             type: 'chord',
-        //             sort: 'ascending',
-        //             sortSub: 'descending',
-        //             showScale: true,
-        //             showScaleText: true,
-        //             data: [
-        //                 { name: 'group1' },
-        //                 { name: 'group2' },
-        //                 { name: 'group3' },
-        //                 { name: 'group4' }
-        //             ],
-        //             itemStyle: {
-        //                 normal: {
-        //                     label: {
-        //                         show: true
-        //                     }
-        //                 }
-        //             },
-        //             matrix: [
-        //                 [11975, 5871, 8916, 2868],
-        //                 [1951, 10048, 2060, 6171],
-        //                 [8010, 16145, 8090, 8045],
-        //                 [1013, 990, 940, 6907]
-        //             ]
-        //         }
-        //     ]
-        // };
-        var colorPalette = ['red','green', 'blue',  'black','orange','yellow', 'violet'];
-        echarts.config.color=[]
-        option = {
-            color : [
-        'red','blue','green','black','#2d83ae',
-        'purple',
-    ],
-            
-            // title : {
-            //     text: '测试数据'
-            // },
-            tooltip : {
-                trigger: 'item',
-                formatter: function (params) {
-                    if (params.indicator2) { // is edge
-                        return params.value.weight;
-                    } else {// is node
-                        return params.name
-                    }
-                }
-            },
-            // toolbox: {
-            //     show : false,
-            //     y:'bottom',
-            //     feature : {
-            //         restore : {show: true},
-            //         magicType: {show: true, type: ['force', 'chord']},
-            //         saveAsImage : {show: true}
-            //     }
-            // },
-            // legend: {
-            //     x: 'right',
-            //     data:['UGANDA','US', 'JAMAICA', 'NIGERIA']
-            // },
-            series: [
-                {
-                    type: 'chord',
-                    radius: ['70%', '75%'], //inner ,outer
-                    center: ['50%', '50%'], //x, y position of center
-                    padding: 1,
-                    sort: 'descending', // can be 'none', 'ascending', 'descending'
-                    sortSub: 'descending', // can be 'none', 'ascending', 'descending'
-                    startAngle: 90,
-                    clockWise: true,
-                    showScale: true,
-                    scaleAngle:30,
-                    showScaleText: true,
-                    // itemStyle: {
-                    //     normal: {
-                    //         borderWidth: 0,
-                    //         borderColor: '#000',
-                    //         chordStyle: {
-                    //             borderWidth: 0.5,
-                    //             borderColor: '#333',
-                    //             color: 'blue'
-                    //         },
-                    //         label: {
-                    //             show: true,
-                    //             color: 'red'
-                    //         }
-                    //     },
-                    //     // emphasis : {
-                    //     //     borderWidth : 0,
-                    //     //     borderColor : '#000',
-                    //     //     chordStyle : {
-                    //     //         borderWidth : 1,
-                    //     //         borderColor : 'black'
-                    //     //     }
-                    //     // }
-                    // },
-                    data: [
-                        {
-                            name: 'NIGERIA',
-                            itemStyle: {
-                                // normal: {
-                                    // color: 'rgba(255,30,30,0.5)',
-                                    color: 'black',
-                                    lineStyle: {
-                                        width: 1,
-                                        color: 'green'
-                                    },
-                                    chordStyle: {
-                                        borderWidth: 0.5,
-                                        borderColor: '#333',
-                                        color: 'black'
-                                    }
+                            <a id="t2" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 2
+                            </a>
+                            <br>
+                            <a id="t3" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 3 <span class="float-right">-</span>
+                            </a>
+                            <br>
+                            <a id="t4" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 4
+                            </a>
+                            <br>
+                            <a id="t5" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 5
+                            </a>
+                            <br>
+                            <a id="t6" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 6
+                            </a>
+                            <br>
+                            <a id="t7" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 7
+                            </a>
+                            <br>
+                            <a id="t8" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 8
+                            </a>
+                            <br>
+                            <a id="t9" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 9
+                            </a>
+                            <br>
+                            <a id="t10" href="#" class="list-group-item list-group-item-action"
+                                style="border-radius: 20px;">
+                                Topic 10
+                            </a>
+                            <br>
 
-                                // }
-                                // emphasis: {
-                                //     color: 'black',
-                                //     lineStyle : {
-                                //         width: 1,
-                                //         color: 'red'
-                                //     }
-                                // }
-                            }
-                        },
-                        {
-                            name: 'USA',
-                            itemStyle: {
-                                // normal: {
-                                    // color: 'rgba(255,30,30,0.5)',
-                                    color: 'red',
-                                    lineStyle: {
-                                        width: 1,
-                                        color: 'green'
-                                    }
-                                // },
-                                // emphasis: {
-                                //     color: 'red',
-                                //     lineStyle : {
-                                //         width: 1,
-                                //         color: 'red'
-                                //     }
-                                // }
-                            }
-                        },
-                        {
-                            name: 'JAMAICA',
-                            itemStyle: {
-                                // normal: {
-                                    // color: 'rgba(255,30,30,0.5)',
-                                    color: 'blue',
-                                    lineStyle: {
-                                        width: 1,
-                                        color: 'green'
-                                    }
-                                // },
-                                // emphasis: {
-                                //     color: 'blue',
-                                //     lineStyle : {
-                                //         width: 1,
-                                //         color: 'red'
-                                //     }
-                                // }
-                            }
-                        },
-                        {
-                            name: 'uk',
-                            itemStyle: {
-                                // normal: {
-                                    // color: 'rgba(255,30,30,0.5)',
-                                    color: 'blue',
-                                    lineStyle: {
-                                        width: 1,
-                                        color: 'green'
-                                    }
-                                // },
-                                // emphasis: {
-                                //     color: 'blue',
-                                //     lineStyle : {
-                                //         width: 1,
-                                //         color: 'red'
-                                //     }
-                                // }
-                            }
-                        },
-                        {
-                            name: 'UGANDA',
-                            itemStyle: {
-                                // normal: {
-                                    // color: 'rgba(255,30,30,0.5)',
-                                    color: 'green',
-                                    lineStyle: {
-                                        width: 1,
-                                        color: 'yellow'
-                                    }
-                                // },
-                                // emphasis: {
-                                //     color: 'yellow',
-                                //     lineStyle : {
-                                //         width: 1,
-                                //         color: 'yellow'
-                                //     }
-                                // }
-                            }
-                        }
-                        // {name : 'g2'},
-                        // {name : 'g3'},
-                        // {name : 'g4'}
-                    ],
-                    matrix: [
-                        [10, 20, 30, 40,50],
-                        [40, 20, 10, 22,44],
-                        [80, 16, 80, 85,4],
-                        [10, 99, 94, 69,20],
-                        [10, 99, 94, 69,10]
-                    ],
-                    // markPoint : {
-                    //     symbol: 'star',
-                    //     data : [
-                    //         {name : '打酱油的标注', value : 100, x:'5%', y:'50%', symbolSize:32},
-                    //         {name : '打酱油的标注', value : 100, x:'95%', y:'50%', symbolSize:32}
-                    //     ]
-                    // }
-                }
-            ],
-            graph: {
-            color: colorPalette
-        }
-        };
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12" style="margin-bottom: 20px;">
+                    <div class="row h-300">
+                        <div class="col-md-12 col-lg-12 B h-50 pb-3 card w3-border w3-round-xlarge"
+                            style="box-shadow: -2px 2px #8080804f;">
+                            <div class="panel">
+                                <div class="" id="myChart_line" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
 
-        myChart.setOption(option)
-    </script>
-  
+                    <div class="card w3-border w3-round-xlarge" style=" box-shadow: -2px 2px #8080804f;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Blog Distribution</strong>
+
+                                    <h3 id="distribution">95%</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Bloggers Mentioned</strong>
+
+                                    <h3 id="b_mentioned">20</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong>Posts Mentioned</strong>
+
+                                    <h3 id="p_mentioned">400</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>
+                                    <br>
+                                    <strong style=" font-size: 14px;">The Posting Location</strong>
+
+                                    <h3 id="posting_loc" style=" font-size: 26px;">United States</h3>
+                                    </br>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 card "
+                    style="margin-top: 20px; margin-right: 20px;box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>Keywords from
+                        <a id="word" href="#"></a> of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_word" style="height: 370px; width: 100%;"></div>
+                </div>
+                <div class="col-sm-4 col-md-4 card"
+                    style="margin-top: 20px; margin-right: 20px;box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>
+                        <a id="chord" href="#"></a> Overlap of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_chord" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div class="col-sm-3 col-md-3 card" style="margin-top: 20px; box-shadow: -2px 2px #8080804f;">
+                    <br>
+                    <div>Posts from
+                        <a id="scatter" href="#"></a> of Past
+                        <strong>Week</strong>
+                    </div>
+                    <div class="" id="myChart_scatter" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" async></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" async></script>
+    <!-- <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> -->
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

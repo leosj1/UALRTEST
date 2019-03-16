@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
     <!-- data js link -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
@@ -33,16 +34,26 @@
                         </div>
                         </br>
 
-                            <input class="form-control" id="myInput" type="text" placeholder="Search"
-                                style="border-radius: 20px; width:90%;" aria-describedby="basic-addon1">
-                            <br>
+                        <div class="form-group has-search">
+                            <div class="row">
+                                <a href="#"><span class="fa fa-search form-control-feedback"></span></a>
 
-                            <ul class="list-group " id="myList"
+                                <input type="text" id="myInput" class="form-control" placeholder="Search">
+                                <a href="#"><i id="clear" class="fa fa-times"></i></a>
+                            </div>
+
+
+                            <!-- <span class="fa fa-search form-control-feedback"></span> -->
+                        </div>
+                        <br>
+
+                        <ul class="list-group " id="myList"
                             style="max-height: 370px; overflow: scroll; overflow-x: hidden; padding-right:20px;">
 
                             <a id="t1" href="#" class="list-group-item list-group-item-action "
                                 style="border-radius: 20px; height:20%;">
                                 Topic 1
+                                
                             </a>
                             <br>
 

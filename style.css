@@ -59,13 +59,38 @@ div[id$="myChart_scatter-license-text"] {
   ::-webkit-scrollbar-thumb {
     background: #888; 
     border-radius: 50px;
-    
-    
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: rgb(85, 85, 85); 
 
   }
 
+
+  .has-search {
+    border: 1px solid rgb(238, 229, 229);
+    border-radius: 50px;
+    height: 40px;
+    width: 90%;
+}
+.fa-search{
+    margin: 10px 0px 0px 25px;
+}
+.has-search a {
+    color: rgb(138, 130, 130);
+}
+input[type = text]{
+    border: none;
+    width: 119px;
+    height: 30px;
+    margin: 2px 0px 0px 9px;
+}
+.form-control:focus{
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.fa-times{
+    margin: 10px 10px 0px 30px;
+}

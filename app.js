@@ -18,24 +18,46 @@ $(document).ready(function () {
         });
     });
 
+    //clear search input and reset list 
+    $("#clear").click(function () {
+        $('#myInput').val("").trigger("keyup").focus();
+    });
+
     //on reload, set ids to "Topic 1"
     document.getElementById("scatter").innerText = document.getElementById("chord").innerText = document.getElementById("word").innerText = "Topic 1";
 
+    $("#myList a").hover(function(){
+        $(this).css("background-color", "#007bff");
+        $(this).css("color", "white");
+        $(this).append($('<span style="color: white;" class="float-right">-</span>'));
+        }, function(){
+        $(this).css("background-color", "");
+        $(this).css("color", "");
+        $(this).find("span:last").remove();
+      });
 
-    $("a").on("click", function () {
+
+    $("#myList a").on("click", function () {
         //on click, respective graphs takes topic title
+        $(this).find("span:last").remove();
+        // document.getElementById(this.id).remove($('<span class="float-right">-</span>'));``
         document.getElementById("word").innerText = document.getElementById("chord").innerText = document.getElementById("scatter").innerText = document.getElementById(this.id).innerText;
 
         //select respective topic data from json data , data.js and render the graphs
         Object.keys(topics).map(topic => {
+
             let id = $(this).attr("id")
             if (topic === document.getElementById(this.id).innerText) {
+                // document.getElementById(this.id).find("span:last").remove();
+
 
                 option.series[0].data = topics[topic][0]["data"]["chord"]
                 option.series[0].matrix = topics[topic][0]["data"].matrix
                 option.color = topics[topic][0]["data"].color
 
                 wordConfig.options.text = topics[topic][0]["data"]["word"]
+                wordConfig.options.ignore = topics[topic][0]["data"].ignore
+
                 scatterConfig["series"] = topics[topic][0]["data"]["scatter"]
 
                 document.getElementById("distribution").innerText = topics[topic][0]["properties"]["Blog distribution"]
@@ -50,10 +72,10 @@ $(document).ready(function () {
         })
     });
 
-    
+
 
 });
-var today=new Date();
+var today = new Date();
 var dd = today.getDate();
 //line graph configuration
 var lineConfig = {
@@ -162,7 +184,7 @@ var lineConfig = {
                     "font-family": "Roboto",
                     "font-size": "14px"
                 },
-                { 
+                {
                     "values": getrand(35000, 45000, 12),
                     "data-days": [
                         "Sept 19",
@@ -294,6 +316,7 @@ var wordConfig = {
     type: 'wordcloud',
     options: {
         text: "Word1 Word2 Word3 Word4 Word5",
+        ignore: ["America", "American"],
         maxItems: 40,
         aspect: 'flow-center',
         rotate: true,
@@ -481,7 +504,6 @@ option = {
                 {
                     name: 'SAMSUNG',
                     itemStyle: {
-                        color: 'black',
                         lineStyle: {
                             width: 1,
                             color: 'green'
@@ -491,7 +513,6 @@ option = {
                 {
                     name: 'iPhone',
                     itemStyle: {
-                        color: 'red',
                         lineStyle: {
                             width: 1,
                             color: 'green'
@@ -501,7 +522,6 @@ option = {
                 {
                     name: 'LG',
                     itemStyle: {
-                        color: 'blue',
                         lineStyle: {
                             width: 1,
                             color: 'green'
@@ -511,7 +531,6 @@ option = {
                 {
                     name: 'uk',
                     itemStyle: {
-                        color: 'blue',
                         lineStyle: {
                             width: 1,
                             color: 'green'
@@ -521,7 +540,6 @@ option = {
                 {
                     name: 'HUWAWEI',
                     itemStyle: {
-                        color: 'green',
                         lineStyle: {
                             width: 1,
                             color: 'yellow'
@@ -530,11 +548,11 @@ option = {
                 }
             ],
             matrix: [
-                [20, 0, 0, 0, 0],
-                [10, 0, 0, 0, 0],
-                [10, 0, 0, 0, 20],
-                [10, 0, 0, 0, 0],
-                [10, 0, 0, 0, 0]
+                [20, 40, 60, 70, 90],
+                [0, 10, 0, 0, 0],
+                [0, 30, 0, 0, 0],
+                [0, 50, 0, 0, 0],
+                [0, 60, 0, 0, 0]
             ],
         }
     ],
