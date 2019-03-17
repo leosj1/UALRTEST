@@ -476,10 +476,10 @@ option = {
     series: [
         {
             type: 'chord',
-            radius: ['60%', '65%'], //inner ,outer
-            center: ['45%', '50%'], //x, y position of center
-            padding: 1,
-            sort: 'descending', // can be 'none', 'ascending', 'descending'
+            radius: ['40%', '45%'], //inner ,outer
+            center: ['50%', '50%'], //x, y position of center
+            padding: 3,
+            sort: 'ascending', // can be 'none', 'ascending', 'descending'
             sortSub: 'descending', // can be 'none', 'ascending', 'descending'
             startAngle: 90,
             clockWise: false,
@@ -496,57 +496,65 @@ option = {
                     },
                     label: {
                         show: true,
-                        color: 'red'
+                        color: 'red',
+                        rotate:true,
                     }
                 },
             },
-            data: [
-                {
-                    name: 'SAMSUNG',
-                    itemStyle: {
-                        lineStyle: {
-                            width: 1,
-                            color: 'green'
-                        },
-                    }
-                },
-                {
-                    name: 'iPhone',
-                    itemStyle: {
-                        lineStyle: {
-                            width: 1,
-                            color: 'green'
-                        }
-                    }
-                },
-                {
-                    name: 'LG',
-                    itemStyle: {
-                        lineStyle: {
-                            width: 1,
-                            color: 'green'
-                        }
-                    }
-                },
-                {
-                    name: 'uk',
-                    itemStyle: {
-                        lineStyle: {
-                            width: 1,
-                            color: 'green'
-                        }
-                    }
-                },
-                {
-                    name: 'HUWAWEI',
-                    itemStyle: {
-                        lineStyle: {
-                            width: 1,
-                            color: 'yellow'
-                        }
-                    }
-                }
+            nodes: [
+                {name:'SAMSUNG'},
+                {name:'iPhone'},
+                {name:'LG'},
+                {name:'uk'},
+                {name:'HUAWEI'},
             ],
+            // data: [
+            //     {
+            //         name: 'SAMSUNG',
+            //         itemStyle: {
+            //             lineStyle: {
+            //                 width: 1,
+            //                 color: 'green'
+            //             },
+            //         }
+            //     },
+            //     {
+            //         name: 'iPhone',
+            //         itemStyle: {
+            //             lineStyle: {
+            //                 width: 1,
+            //                 color: 'green'
+            //             }
+            //         }
+            //     },
+            //     {
+            //         name: 'LG',
+            //         itemStyle: {
+            //             lineStyle: {
+            //                 width: 1,
+            //                 color: 'green'
+            //             }
+            //         }
+            //     },
+            //     {
+            //         name: 'uk',
+            //         itemStyle: {
+            //             lineStyle: {
+            //                 width: 1,
+            //                 color: 'green'
+            //             }
+            //         }
+            //     },
+            //     {
+            //         name: 'HUAWEI',
+            //         itemStyle: {
+            //             lineStyle: {
+            //                 width: 1,
+            //                 color: 'yellow'
+            //             }
+            //         }
+            //     }
+            // ],
             matrix: [
                 [20, 40, 60, 70, 90],
                 [0, 10, 0, 0, 0],

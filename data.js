@@ -502,9 +502,9 @@ const topics = {
                 ignore: ["America", "American", "is", "Because", "because", "could", "don’t", "people", "That’s", "that’s", "Their", "their", "there", "these", "thing", "those", "through", "We’re", "we’re", "where", "would","the","of","in","is","to","with","and"],
                 color: ['#6d6e6f','#a216c5' , '#1639c5','#c5162d',  '#1648c5'],
                 matrix: [
-                    [300, 20, 30, 50, 50],
+                    [0, 20, 30, 50, 50],
                     [10, 20, 10, 522, 44],
-                    [80, 65, 80, 10, 54],
+                    [80, 65, 80, 0, 54],
                     [20, 10, 955, 569, 50],
                     [10, 95, 54, 66, 150]
                 ],
